@@ -1,0 +1,40 @@
+.main-title {
+  /* style h1 to have a primary color use nesting*/
+  color: #3498db;
+}
+.main-subtitle {
+  /*style p to have a secondary color use nesting*/
+  color: #2ecc71;
+}
+.main-btn {
+  /*style button to have a primary color and secondary color when hover use nesting*/
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+}
+.main-btn:hover {
+  background-color: #2ecc71;
+  cursor: pointer;
+}
+
+.content {
+  /*for all "font-" classes please use @each*/
+}
+.content .font-18px {
+  /*let it has a font-size equal to 18px*/
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.content .font-16px {
+  /*let it has a font-size equal to 16px*/
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.content .font-14px {
+  /*let it has a font-size equal to 14px*/
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
