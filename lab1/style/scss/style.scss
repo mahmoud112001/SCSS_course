@@ -1,0 +1,45 @@
+// Variables for easy management
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+.main {
+  // Using & to target .main-title
+  &-title {
+    /* style h1 to have a primary color use nesting*/
+    color: $primary-color;
+  }
+
+  // Using & to target .main-subtitle
+  &-subtitle {
+    /*style p to have a secondary color use nesting*/
+    color: $secondary-color;
+  }
+
+  // Using & to target .main-btn
+  &-btn {
+    /*style button to have a primary color and secondary color when hover use nesting*/
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    
+    &:hover {
+      background-color: $secondary-color;
+      cursor: pointer;
+    }
+  }
+}
+
+.content {
+  /*for all "font-" classes please use @each*/
+  $sizes: 18, 16, 14;
+
+  @each $size in $sizes {
+    // Generates .font-18px, .font-16px, etc.
+    .font-#{$size}px {
+      /*let it has a font-size equal to #{$size}px*/
+      font-size: #{$size}px;
+      margin-bottom: 10px;
+    }
+  }
+}
