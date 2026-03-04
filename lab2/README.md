@@ -27,9 +27,10 @@ lab2/
 ## Features Implemented
 1. Mobile-first column classes `.col-1` … `.col-12`
 2. Responsive variants `.col-sm-*`, `.col-md-*`, `.col-lg-*`, `.col-xl-*`
-3. Use of variables for grid columns and breakpoints
+3. Use of variables for grid columns, breakpoints, and colors (`$primary`, `$danger`)
 4. Mixins for base column styling and grid generation
-5. Dynamic background color assignment via loops
+5. Dynamic background color assignment via loops (using `$primary`, `$danger`, and custom colors)
+6. Extra small device optimization with vertical stacking at max-width 800px
 
 ## How to Use
 1. Open [lab2/gridUsingSass.html](lab2/gridUsingSass.html) in your browser.
@@ -45,5 +46,7 @@ sass lab2/style/scss/style.scss lab2/style/css/style.css --no-source-map
 - CSS3
 
 ## Notes
-- The SCSS source generates classes for a 12-column grid and responsive breakpoints.
+- The SCSS source uses primary colors (`$primary: tomato`, `$danger: purple`) for dynamic styling.
+- The grid generates classes for a 12-column layout with responsive breakpoints (sm, md, lg, xl).
+- On screens with max-width 800px, the grid switches to vertical stacking (`flex-direction: column`).
 - For course questions, contact Eng. Omar Walid.
