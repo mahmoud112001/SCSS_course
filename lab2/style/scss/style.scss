@@ -1,0 +1,48 @@
+// Grid configuration: 12 columns and standard responsive breakpoints
+$grid-columns: 12; 
+$breakpoints: ("sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px); //
+
+// Sample border and background colors
+$border-color: #333;
+$bg-color-1: #c9ecf0; 
+$bg-color-2: #e5d7c2; 
+$bg-color-3: #d3dec6; 
+
+// Shared column properties with border and variable background color
+@mixin col-base($bg-color) { // Modified to accept background color
+  padding: 15px; 
+  box-sizing: border-box; 
+  width: 100%; 
+  // Add sample styling
+  border: 2px solid $border-color;
+  border-radius: 4px; 
+  background-color: $bg-color; 
+  text-align: center; 
+  font-weight: bold; 
+  color:$border-color; 
+}
+
+// Grid generator: creates classes and calculates widths using a loop
+@mixin create-grid($suffix: "") { 
+  @for $i from 1 through $grid-columns { 
+    $class-name: if($suffix == "", ".col-#{$i}", ".col-#{$suffix}-#{$i}"); 
+    
+    // Assign different background colors based on column index
+    $bg-color: if($i % 3 == 1, $bg-color-1, if($i % 3 == 2, $bg-color-2, $bg-color-3)); 
+
+    #{$class-name} { 
+      @include col-base($bg-color); // Pass the chosen color to the mixin
+      width: (100% / $grid-columns) * $i; //
+    } 
+  } 
+} 
+
+// Layout containers: base styles for the grid wrapper
+.container { max-width: 1140px; margin: 0 auto; padding-top: 20px;} //
+.row { display: flex; flex-wrap: wrap; margin: 0 -15px; row-gap: 15px;} // Added spacing between items
+
+// Execution: generate mobile-first columns followed by responsive media queries
+@include create-grid();  
+@each $key, $val in $breakpoints { 
+  @media (min-width: $val) { @include create-grid($key); } 
+} 
