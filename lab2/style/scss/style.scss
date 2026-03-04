@@ -1,11 +1,14 @@
+$primary: tomato;
+$danger:purple ;
+
 // Grid configuration: 12 columns and standard responsive breakpoints
 $grid-columns: 12; 
 $breakpoints: ("sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px); //
 
 // Sample border and background colors
 $border-color: #333;
-$bg-color-1: #c9ecf0; 
-$bg-color-2: #e5d7c2; 
+$bg-color-1: $primary; 
+$bg-color-2: $danger; 
 $bg-color-3: #d3dec6; 
 
 // Shared column properties with border and variable background color
@@ -46,3 +49,18 @@ $bg-color-3: #d3dec6;
 @each $key, $val in $breakpoints { 
   @media (min-width: $val) { @include create-grid($key); } 
 } 
+
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column; // Forces vertical stacking
+  }
+  
+  [class*="col-"] {
+    width: 100% !important; 
+  }
+}
+
+
+
+@import"../../bootstrap/node_modules/bootstrap/scss/bootstrap.scss/"
